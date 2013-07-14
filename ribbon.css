@@ -1,0 +1,377 @@
+/* -----------------------------------
+GLOBAL DEFAULT RIBBON SETTINGS
+-----------------------------------*/
+.ribbon{
+	background-color:#C0392B;
+	border-color:#C0392B;/*Folds*/
+	color:#fff;
+	position:absolute; 
+    font-weight:bold;
+    text-align:center;
+    font-size:10px;
+}
+/*Darken the folds*/
+.ribbon:after, .ribbon:before{
+	-webkit-filter: brightness(60%);   
+}
+[class^="ribbon--"]{
+	position:absolute;
+	z-index:99;
+}
+/*Corner Ribbon Size*/
+[class^="ribbon--corner"]{
+	width:70px;
+	height:70px;
+}
+
+
+/* -----------------------------------
+CORNERS
+-----------------------------------*/
+
+/*General*/
+[class^="ribbon--corner"]{
+	overflow:hidden;
+}	
+[class^="ribbon--corner"] .ribbon{			
+	line-height:0px;
+	padding:16.6667% 0; /*Half of 33.33% height*/
+	width:100%;			
+	-webkit-transform-origin:100% 100%;			
+}
+[class^="ribbon--corner"] .ribbon:before,
+[class^="ribbon--corner"] .ribbon:after
+{
+	content:" ";
+	display:block;
+	position:absolute;		
+	width:0;
+	height:0;
+    border-color:inherit;
+    border-color:inherit;
+    border-width:3px;
+    border-style: solid;			
+}
+
+
+/*Positions*/
+.ribbon--corner--ne,
+.ribbon--corner--nw{top:-4px;}	
+.ribbon--corner--se,
+.ribbon--corner--sw{bottom:-4px;}	
+.ribbon--corner--nw,
+.ribbon--corner--sw{left:-3px;}
+.ribbon--corner--ne,
+.ribbon--corner--se{right:-4px;}
+
+
+/*Individual Settings*/
+.ribbon--corner--nw .ribbon{
+	top:-34%;
+	left:-32%;
+	-webkit-transform:rotate(-45deg);
+	-webkit-box-shadow:1px 1px 4px rgba(0,0,0,.5);
+}
+
+.ribbon--corner--ne .ribbon{
+	top:36%;
+	right:0%;
+	-webkit-transform:rotate(45deg);
+	-webkit-box-shadow:-1px 1px 4px rgba(0,0,0,.5);	
+}
+
+.ribbon--corner--sw .ribbon{
+	bottom:-24%;
+	left:-56%;
+	-webkit-transform:rotate(45deg);
+	-webkit-box-shadow:1px -1px 4px rgba(0,0,0,.5);
+}
+
+.ribbon--corner--se .ribbon{
+	bottom:46%;
+	right:-24%;
+	-webkit-transform:rotate(-45deg);
+	-webkit-box-shadow:-1px -1px 4px rgba(0,0,0,.5);
+}
+
+[class^="ribbon--corner--n"] .ribbon:before,
+[class^="ribbon--corner--n"] .ribbon:after{
+	bottom:-6px;/* twice the border width*/
+}
+
+[class^="ribbon--corner--s"] .ribbon:before,
+[class^="ribbon--corner--s"] .ribbon:after{
+	top:-6px;/* twice the border width*/
+}
+
+[class^="ribbon--corner--n"] .ribbon:before{				
+	left:0px;
+	border-bottom-color:transparent;				
+	border-right-color: transparent;
+}
+
+[class^="ribbon--corner--n"] .ribbon:after{
+	right:0;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+}
+
+[class^="ribbon--corner--s"] .ribbon:before{
+	right:0;
+	border-top-color: transparent;
+	border-left-color: transparent;
+}
+
+[class^="ribbon--corner--s"] .ribbon:after{				
+	left:0px;
+	border-top-color:transparent;				
+	border-right-color: transparent;
+}
+
+
+/* -----------------------------------
+EDGES
+-----------------------------------*/
+
+/*General*/
+[class^="ribbon--edge"] .ribbon{
+    width:auto;
+   	padding:8px;
+}
+
+/*Same as class^="ribbon-full", below*/
+[class^="ribbon--edge"] .ribbon:after{
+	content:"";
+    position:absolute;
+    z-index:-1;
+    border-color:inherit;
+    border-width:4px;
+    border-style: solid;
+}
+
+
+/*Positions*/
+.ribbon--edge--e .ribbon:after,
+.ribbon--edge--w .ribbon:after{
+	top:100%;
+}
+
+.ribbon--edge--n .ribbon:after,
+.ribbon--edge--s .ribbon:after{
+    left:100%;
+}
+
+
+/*Individual Settings*/
+.ribbon--edge--e{right:-4px;}
+.ribbon--edge--e .ribbon{
+	right:100%;
+	-webkit-box-shadow:-1px 1px 4px rgba(0,0,0,.5);
+}
+
+.ribbon--edge--w{left:-4px;}
+.ribbon--edge--w .ribbon{
+	left:100%;
+    -webkit-box-shadow:1px 1px 4px rgba(0,0,0,.5);
+}
+
+.ribbon--edge--n{top:-4px;}
+.ribbon--edge--n .ribbon{
+	top:100%;
+    -webkit-box-shadow:1px 1px 4px rgba(0,0,0,.5);
+}
+
+.ribbon--edge--s{bottom:-4px;}
+.ribbon--edge--s .ribbon{
+	bottom:100%;
+     -webkit-box-shadow:1px -1px 4px rgba(0,0,0,.5);
+}
+
+.ribbon--edge--e .ribbon:after {
+    border-top-color:transparent;
+    border-bottom-color:transparent;
+    border-top-width:0;
+    border-right-width:0;
+    left:auto;
+    right:0;
+}
+
+.ribbon--edge--w .ribbon:after {
+    border-left-color:transparent;
+    border-right-color:transparent;
+    right:auto;
+    left:0;
+    border-right-width:0;
+    border-bottom-width:0;
+}
+
+.ribbon--edge--n .ribbon:after{
+    border-top-color:transparent;
+    border-bottom-color:transparent;
+    bottom:auto;
+    top:0;
+    border-right-width:0;
+    border-bottom-width:0;
+}
+
+.ribbon--edge--s .ribbon:after{
+    border-top-color:transparent;
+    border-bottom-color:transparent;
+    top:auto;
+    bottom:0;
+    border-top-width:0;
+    border-right-width:0;
+}
+/* Uncomment for some unreliable N, S, E, W centering
+.ribbon--edge--e,
+.ribbon--edge--w{
+	top:50%;
+	margin-top:-10px;
+}
+.ribbon--edge--n,
+.ribbon--edge--s{
+	left:46%;	
+}
+*/
+
+/* -----------------------------------
+FULL
+-----------------------------------*/
+
+/*General*/
+[class^="ribbon--full"]{
+	position:absolute; 
+	width:100%;
+	top:auto;
+	bottom:auto;
+}
+[class^="ribbon--full"] .ribbon{
+	left:-4px;
+	right:-4px;
+	padding:4px 0px;
+}
+[class^="ribbon--full"] .ribbon:before,
+[class^="ribbon--full"] .ribbon:after{
+	content:"";
+    position:absolute;
+    z-index:-1;
+    border-color:inherit;
+    border-width:4px;
+    border-style: solid;
+}
+
+/*Positions*/
+.ribbon--full--n{top:0px; bottom:auto;}
+.ribbon--full--s{bottom:0px;top:auto;}
+
+
+/*Individual Settings*/
+.ribbon--full--n .ribbon{
+	-webkit-box-shadow:0px 1px 4px rgba(0,0,0,.5);
+}
+
+.ribbon--full--n .ribbon:before {
+	top:100%;
+    border-left-color:transparent;
+    border-right-color:transparent;
+    right:auto;
+    left:0;
+    border-right-width:0;
+    border-bottom-width:0;
+}
+
+.ribbon--full--n .ribbon:after {
+    top:100%;
+    border-top-color:transparent;
+    border-bottom-color:transparent;
+    border-top-width:0;
+    border-right-width:0;
+    left:auto;
+    right:0;
+
+}
+
+.ribbon--full--s .ribbon{
+	-webkit-box-shadow:0px -1px 4px rgba(0,0,0,.5);
+}
+
+.ribbon--full--s .ribbon:before {
+	bottom:100%;
+    border-left-color:transparent;
+    border-right-color:transparent;
+    right:auto;
+    left:0;
+    border-right-width:0;
+    border-top-width:0;
+}
+
+.ribbon--full--s .ribbon:after {
+    bottom:100%;
+    border-top-color:transparent;
+    border-bottom-color:transparent;
+    border-bottom-width:0;
+    border-right-width:0;
+    left:auto;
+    right:0;
+}
+
+
+/* -----------------------------------
+FLAT UI COLORS
+http://designmodo.github.io/Flat-UI/
+-----------------------------------*/
+.ribbon--turquoise .ribbon{
+	background-color:#1ABC9C;
+	border-color:#1ABC9C;
+	color:#fff;
+}
+.ribbon--blue .ribbon{
+	background-color:#3498DB;
+	border-color:#3498DB;
+	color:#fff;
+}
+.ribbon--purple .ribbon{
+	background-color:#9B59B6;
+	border-color:#9B59B6;
+	color:#fff;
+}
+.ribbon--green .ribbon{
+	background-color:#2ECC71;
+	border-color:#2ECC71;
+	color:#fff;
+}
+.ribbon--gray .ribbon{
+	background-color:#95A5A6;
+	border-color:#95A5A6;
+	color:#fff;
+}
+.ribbon--dkgray .ribbon{
+	background-color:#34495E;
+	border-color:#34495E;
+	color:#fff;
+}
+.ribbon--ltgray .ribbon{
+	background-color:#BDC3C7;
+	border-color:#BDC3C7;
+	color:#fff;
+}
+.ribbon--yellow .ribbon{
+	background-color:#F1C40F;
+	border-color:#F1C40F;
+	color:#fff;
+}
+.ribbon--orange .ribbon{
+	background-color:#E67E22;
+	border-color:#E67E22;
+	color:#fff;
+}
+.ribbon--red .ribbon{
+	background-color:#E74C3C;
+	border-color:#E74C3C;
+	color:#fff;
+}
+.ribbon--white .ribbon{
+	background-color:#FFFFFF;
+	border-color:#FFFFFF;
+	color:#444444;
+}
