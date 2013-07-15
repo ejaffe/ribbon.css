@@ -12,7 +12,8 @@ GLOBAL DEFAULT RIBBON SETTINGS
 }
 /*Darken the folds*/
 .ribbon:after, .ribbon:before{
-	-webkit-filter: brightness(60%);   
+	-webkit-filter: contrast(200%) grayscale(80%); 
+
 }
 [class^="ribbon--"]{
 	position:absolute;
@@ -67,29 +68,29 @@ CORNERS
 
 /*Individual Settings*/
 .ribbon--corner--nw .ribbon{
-	top:-34%;
-	left:-32%;
+	top:-23px; /*-34%*/
+	left:-22px; /*-32%*/
 	-webkit-transform:rotate(-45deg);
 	-webkit-box-shadow:1px 1px 4px rgba(0,0,0,.5);
 }
 
 .ribbon--corner--ne .ribbon{
-	top:36%;
-	right:0%;
+	top:27px; /*36%*/
+	right:0px; /*0%*/
 	-webkit-transform:rotate(45deg);
 	-webkit-box-shadow:-1px 1px 4px rgba(0,0,0,.5);	
 }
 
 .ribbon--corner--sw .ribbon{
-	bottom:-24%;
-	left:-56%;
+	bottom:-16.5px; /*-24%*/
+	left:-37.5px; /*-56%*/
 	-webkit-transform:rotate(45deg);
 	-webkit-box-shadow:1px -1px 4px rgba(0,0,0,.5);
 }
 
 .ribbon--corner--se .ribbon{
-	bottom:46%;
-	right:-24%;
+	bottom:33px; /*46%*/
+	right:-16px; /*-24%*/
 	-webkit-transform:rotate(-45deg);
 	-webkit-box-shadow:-1px -1px 4px rgba(0,0,0,.5);
 }
